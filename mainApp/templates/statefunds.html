@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title> GFMS | All Funds </title>
+{% endblock %}
+
+{% block body  %}
+
+<div class="mt-4 mb-2 p-3 bg-dark m-3">
+    <h2 class="text-center text-light">All  Funds List of {{State}}</h2>
+</div>
+<div class="text-center">
+    <img  src="{{State.pic.url}}" alt="" width="1200" height="600">
+</div>
+{% if Funds %}
+<div class"text-center">
+    <div class="m-4">
+    <h5 class="bg-dark w-100 mt-3 mb-3 p-3 text-light text-center">All Funds List</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-light">
+            <tr>
+                <th></th>
+                <th>ID No. </th>
+                <th>Fund Title</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>View Details</th>
+            </tr>
+            {% for i in Funds %}
+            <tr>
+                <td></td>
+                <td><b>{{i.id}}</b></td>
+                <td>{{i.fund_title}}</td>
+                <td>{{i.date}}</td>
+                {% if i.status == 1 %}
+                <td class="text-warning">Waiting For Verification</td>
+                {% else %}
+                <td class="text-success">Verified</td>
+                {% endif %}
+                <td><a href="/fund-details/{{i.id}}/">click here</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="text-center mt-5 m-3">
+    <h4 class="bg-dark text-light p-3 w-100 rounded text-center" width="1200" height="600">No Funds Avilable</h4>
+</div>
+{% endif %}
+{% endblock  %}

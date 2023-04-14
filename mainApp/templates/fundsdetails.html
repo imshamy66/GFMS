@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title> GFMS | Fund Details </title>
+{% endblock %}
+
+{% block body  %}
+
+<div class="p-2 m-3 bg-dark">
+    <h2 class="text-center text-light">Fund Details</h2>
+</div>
+<div class="container">
+    <table class="table table-striped table-light">
+        <thead>
+            <tr>
+                <th>ID No. </th>
+                <th>Fund-Title </th>
+                <th>Fund-Description </th>
+                <th>Status</th>
+                <th>Referance</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td><b>{{Funds.id}}</b></td>
+                <td class="text-capitalize">{{Funds.fund_title}}</td>
+                <td class="text-capitalize">{{Funds.fund_description}}</td>
+                {% if Funds.status == 1 %}
+                <td class="text-warning">Waiting For Verification</td>
+                {% else %}
+                <td class="text-success">Verified</td>
+                {% endif %}
+                {% if Funds.pic %}
+                <td><a href="{{ Funds.pic.url }}">Click here to See</a></td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+<section class="my-5">
+    <div class="py-5">
+</section>
+
+
+{% endblock  %}

@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title> Online Bazar | Contact </title>
+{% endblock %}
+
+{% block body  %}
+
+<section class ="my-5">
+    <div class ="py-5">
+     <h2 class="text-center">About Us</h2>
+    </div>
+    <div class ="container-fluid">
+      <div class="row">
+        <div class ="col-lg-6 col-md-6 col-12">
+        <img class="card-img-top" src="{% static 'img/about1.jpg'%}" alt="Card image">
+        </div>
+        <div class ="col-lg-6 col-md-6 col-12">
+        <h1 style="color:#4d0026; font-size: 2em bold;">Government Fund Monitoring System</h1>
+        <p class="py-4" style=" font-size: 1.5em;">Governments need to cater to a huge number of responsibilities
+         of a state. The working of state governments involves huge number of transactions towards various
+         operations that need to be carried out throughout the state. This includes new projects fund, repair and 
+         maintenance works fund, awarding contracts fund, farmer schemes fund and so on.
+         A major hurdle that the top government face is the low level corruption that is sometimes impossible
+         to track which deprives the state progress. Tracking it is a very difficult task due to the current
+        system.
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class ="my-2">
+    <div class ="py-2">
+    </section>
+    <div class ="container-fluid">
+    <div class="row">
+    <div class ="col-lg-6 col-md-6 col-12">
+  <!-- <h1 style="color:#4d0026; font-size: 2em bold;">Government Fund Monitoring System</h1>-->
+    <p class="py-4" style=" font-size: 1.5em;">Here we propose a smart system to track funds allocated
+     to the state government as they travel through the government process at each stage. We here make 
+     use of Government Fund Monitoring system to maintaining transparency in every funds move ahead. In 
+     this project we use RTI for get details of funds allocated to the government of India. We prpovides 
+     all details to all of the users. Provide a palteform for discussion about Importance of given fund.
+    </p>
+      </div>
+        <div class ="col-lg-6 col-md-6 col-12">
+        <img class="card-img-top" src="{% static 'img/about1.jpg'%}" alt="Card image">
+        </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+{% endblock  %}

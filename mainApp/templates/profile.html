@@ -1,0 +1,97 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title> Online Bazar | Profile Page </title>
+{% endblock %}
+{% block body  %}
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            {% if User.pic %}
+            <img src="{{User.pic.url}}" width="700px" height="550px"></img>
+            {% else %}
+            <img src="{% static 'img/noimage.png' %}" width="550px" height="700px"></img>
+            {% endif %}
+        </div> 
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <h5 class="bg-dark text-light p-2 text-center">Profile Section</h5>
+            <table class="table table-light table-striped table-hover">
+                <tr>
+                    <th>Name</th>
+                    <td>{{User.name}}</td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td>{{User.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Email Id</th>
+                    <td>{{User.email}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{User.state}}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{User.city}}</td>
+                </tr>
+                <tr>
+                    <th>Pin Code</th>
+                    <td>{{User.pincode}}</td>
+                </tr><tr>
+                    <th>Parmanent Addres</th>
+                    <td>{{User.address}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2"><a href='/updateprofile/' class='btn bg-dark text-light w-100'>Update Profile</a></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% if Funds %}
+<div class"text-center m-2">
+    <h5 class="bg-dark w-100 mt-3 mb-3 p-3 text-light text-center">Funds You Added </h5>
+    <div class="text-center">
+        <a href="/add-fund/" class="btn btn-primary p-1 mt-2 mb-2" >Add New Fund</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-light">
+            <tr>
+                <th></th>
+                <th>Id No. </th>
+                <th>State</th>
+                <th>Fund Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>View Details</th>
+            </tr>
+            {% for i in Funds %}
+            <tr>
+                <td></td>
+                <td>{{i.id}}</td>
+                <td>{{i.state}}</td>
+                <td>{{i.fund_title}}</td>
+                <td>{{i.date}}</td>
+                {% if i.status == 1 %}
+                <td class="text-warning">Waiting For Verification</td>
+                {% else %}
+                <td class="text-success">Verified</td>
+                {% endif %}
+                <td><a href="/edit-fund/{{i.id}}/">click here</a></td>
+                <td><a href="/fund-details/{{i.id}}/">click here</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="text-center pb-5 mt-5">
+    <h4 class="bg-dark text-light p-3 w-100 rounded text-center">If You Want To Add Any Fund ?</h4>
+    <a href="/add-fund/" class="btn btn-primary" >Click Here</a>
+</div>
+{% endif %}
+{% endblock  %}

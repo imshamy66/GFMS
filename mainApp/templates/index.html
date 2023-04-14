@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+    {%  block title %}
+    <title>Governmet Fund Monitoring System | Home</title>
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+        <h3><a class="navbar-brand btn btn-outline-success p-3" href="/">Governmet Fund Monitoring System</a></h3>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/about/">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/contact/">Contact Us <span class="sr-only">(current)</span></a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/welcome/">All Funds<span class="sr-only">(current)</span></a>
+                </li>
+                </form>
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/profile/">Profile <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active m-2">
+                    <a class="nav-link btn btn-outline-success" href="/profile/">{{request.user}} <span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
+            </ul>
+            <form class="form-inline mx-8 my-4 my-lg-2">
+                {% if request.user.is_authenticated %}
+                <a href="/logout/" button class="btn btn-outline-success mx-2 my-2 my-sm-0" type="submit">Log-Out</button></a>
+                {% else %}
+                <a href="/login/" button class="btn btn-outline-success mx-2 my-2 my-sm-0" type="submit">Log-In</button></a>
+                {% endif %}
+            </form>
+        </div>
+    </nav>
+    {% block body  %}
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img class="card-img-top" src="{% static 'img/slider1.jpg'%}" alt="" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+            <img class="card-img-top" src="{% static 'img/slider2.jpg'%}" alt="" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+            <img class="card-img-top" src="{% static 'img/slider3.jpg'%}" alt="" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <section class="my-5">
+        <div class="py-5">
+            <h2 class="text-center">About Us</h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <img class="card-img-top" src="{% static 'img/about1.jpg' %}" alt="Card image">
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h1 style="color:#4d0026; font-size: 2em bold;">Government Fund Monitoring System</h1>
+                    <p class="py-4" style=" font-size: 1.5em;">Governments need to cater to a huge number of
+                        responsibilities
+                        of a state. The working of state governments involves huge number of transactions towards
+                        various
+                        operations that need to be carried out throughout the state. This includes new projects fund,
+                        repair and
+                        maintenance works fund, awarding contracts fund, farmer schemes fund and so on.
+                        A major hurdle that the top government face is the low level corruption that is sometimes
+                        impossible
+                        to track which deprives the state progress. Tracking it is a very difficult task due to the
+                        current
+                        system.
+                </div>
+            </div>
+        </div>
+        </div>
+        <section class="my-2">
+            <div class="py-2">
+        </section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    {% comment %} <!-- <h1 style="color:#4d0026; font-size: 2em bold;">Government Fund Monitoring System</h1>--> {% endcomment %}
+                    <p class="py-4" style=" font-size: 1.5em;">Here we propose a smart system to track funds allocated
+                        to the state government as they travel through the government process at each stage. We here
+                        make
+                        use of Government Fund Monitoring system to maintaining transparency in every funds move ahead.
+                        In
+                        this project we use RTI for get details of funds allocated to the government of India. We
+                        prpovides
+                        all details to all of the users. Provide a palteform for discussion about Importance of given
+                        fund.
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                <img class="card-img-top" src="{% static 'img/about2.jpg' %}" alt="Card image">
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="my-5">
+        <div class="py-5">
+            <h2 class="text-center">About Developer</h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="https://source.unsplash.com/user/erondu/1600x900"
+                            alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Shamy Ahmad </h4>
+                            <p class="card-text text-center">Full-Stack Developer.</p>
+                            <a href="" class="btn btn-primary bg-success w-100">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="my-5">
+        <div class="py-5">
+            <h2 class="text-center">Contact Us</h2>
+        </div>
+        <div class="w-50 m-auto">
+            <form action="comments.php" method="post">
+                <div class="form-group">
+                    <lable>Name</lable>
+                    <input type="text" name="username" required="required" autocomplete="off" class="form-control">
+                </div>
+                <div class="form-group">
+                    <lable> Email Id </lable>
+                    <input type="text" name="email" requiredd="required" autocomplete="off" class="form-control">
+                </div>
+                <div class="form-group">
+                    <lable> Mobile Number </lable>
+                    <input type="text" name="mobile" required="required" autocomplete="off" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+    </section>
+{% endblock %}
+<footer class="page-footer font-small bg-dark text-light p-4 mt-2">
+    <div class="footer-copyright text-center py-3">Government Fund Monitoring System © 2023 Copyright</div>
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-12"></div>
+        <div class="col-md-6 col-sm-12 col-12">
+            <form action="" method="post"> 
+                {% csrf_token %}
+                <div class="mb-3 text-center">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="email@example.com">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn bg-light text-black">Subscribe</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3 col-sm-12 col-12"></div>
+    </div>
+</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
